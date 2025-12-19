@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 80px 1fr 80px;
+    grid-template-areas: 
+        "header header"
+        "aside main"
+        "footer footer";
+    height: 100vh;
+}
+header {
+    grid-area: header;
+    background-color: red;
+}
+aside {
+    grid-area: aside;
+    background-color: yellow;
+}
+main {
+    grid-area: main;
+    background-color: green;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    padding: 40px;
+}
+section {
+    background-color: orange;
+    opacity: 0.8;
+}
+footer {
+    grid-area: footer;
+    background-color: blue;
+}
+
+/* Адаптив для планшета */
+@media (max-width: 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 80px 1fr 80px;
+        grid-template-areas: 
+            "header"
+            "aside"
+            "main"
+            "footer";
+    }
+    main {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        padding: 20px;
+    }
+}
+
+/* Адаптив для телефона */
+@media (max-width: 600px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "header"
+            "aside"
+            "main"
+            "footer";
+    }
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+}
