@@ -12,35 +12,33 @@
     <title>Nike Air Mag</title>
   </head>
   <body class="page__body">
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
     <div class="container">
-      <footer>
-        <a href="#"><img class="footer__logo" src="./icons/лого.svg" alt="Логотип компании"></a>
-        <ul class="footer__menu">
-          <li class="menu__field"><a href="#" class="footer__link">Air Mag</a></li>
-          <li class="menu__field"><a href="#" class="footer__link">Размеры</a></li>
-          <li class="menu__field"><a href="#" class="footer__link">Характеристики</a></li>
-          <li class="menu__field"><a href="#" class="footer__link">Другие ТОП модели</a></li>
+      <header>
+        <a href="#"><img class="header__logo" src="./icons/лого.svg" alt="Логотип компании"></a>
+        <ul class="header__menu">
+          <li class="menu__field"><a href="#" class="header__link">Air Mag</a></li>
+          <li class="menu__field"><a href="#" class="header__link">Размеры</a></li>
+          <li class="menu__field"><a href="#" class="header__link">Характеристики</a></li>
+          <li class="menu__field"><a href="#" class="header__link">Другие ТОП модели</a></li>
         </ul>
-        <button class="footer__button">Сделать заказ</button>
-        <div class="footer__social">
-          <button class="footer__search-button"><img src="./icons/search.svg" alt="Кнопка Поиска"></button>
-          <button class="footer__shopping-button"><img src="./icons/shopping-cart.svg" alt="Кнопка Корзина"></button>
+        <button class="header__button">Сделать заказ</button>
+        <div class="header__social">
+          <button class="header__search-button"><img src="./icons/search.svg" alt="Кнопка Поиска"></button>
+          <button class="header__shopping-button"><img src="./icons/shopping-cart.svg" alt="Кнопка Корзина"></button>
         </div>
-        <label for="menu-toggle" class="footer__burger" aria-label="Открыть меню">
+        <a href="#menu" class="header__burger" aria-label="Открыть меню">
           <img src="./icons/burger.svg" alt="Меню">
-        </label>
-      </footer>
+        </a>
+      </header>
     </div>
     
-    <!-- Модальное меню -->
-    <div class="menu-overlay">
+    <div class="menu-overlay" id="menu">
       <div class="menu-overlay__content">
-        <label for="menu-toggle" class="menu-overlay__close" aria-label="Закрыть меню">
+        <a href="#" class="menu-overlay__close" aria-label="Закрыть меню">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </label>
+        </a>
         <ul class="menu-overlay__list">
           <li><a href="#" class="menu-overlay__link">Air Mag</a></li>
           <li><a href="#" class="menu-overlay__link">Размеры</a></li>
