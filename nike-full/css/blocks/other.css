@@ -1,6 +1,9 @@
 .other{
     margin-bottom: 140px;
 }
+.other__title-accent{
+    color: var(--accent-color);
+}
 .other__items{
 border: 2px solid var(--accent-color);
 border-radius: 12px;
@@ -72,4 +75,5 @@ justify-content: center;
     .other{
         margin-bottom: 80px;
     }
+
 }
