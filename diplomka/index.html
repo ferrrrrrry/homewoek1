@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader classic</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body class="page__body">
+    <header class="header">
+        <div class="container header__container">
+            <button class="header__burger" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav"><img src="../icon/burger.svg" alt="Меню" class="burger__img"></button>
+            <a href="#" class="header__logo">
+              <picture>
+                <source media="(max-width: 576px)" srcset="../icon/logo-mob.svg">
+                <img src="../icon/logo.svg" alt="logo" width="162" height="66" class="header__logo-img">
+              </picture>
+            </a>
+            <nav class="header__nav" id="mobile-nav">
+                <ul class="header__list">
+                    <li class="header__item">
+                        <div class="header__language">
+                            <img src="../icon/russian-icon.svg" alt="Флаг России" width="23" height="23" class="russian__icon">
+                            <p class="russian__text">RU</p>
+                            <img src="../icon/arrow-icon.svg" alt="Иконка стрелки" width="22" height="22">
+                        </div>
+                    </li>
+                    <li class="header__item"><a href="#" class="header__link">Тарифы</a></li>
+                    <li class="header__item"><a href="#" class="header__link">Бонус</a></li>
+                    <li class="header__item"><a href="#" class="header__link">Реферальная</a></li>
+                    <li class="header__item"><a href="#" class="header__link-accent">Контакты&nbsp;<span class="emoji">✨</span></a></li>
+                </ul>
+            </nav>
+            <div class="header__buttons">
+                <button class="header__button">Войти</button>
+                <button class="header__button-accent">Открыть счёт</button>
+            </div>
+        </div>
+    </header>
+    <script>
+      const burger = document.querySelector('.header__burger');
+      const nav = document.getElementById('mobile-nav');
+      const body = document.querySelector('.page__body');
+      if (burger && nav) {
+        burger.addEventListener('click', () => {
+          const open = nav.classList.toggle('header__nav--open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+          body.classList.toggle('page__body--no-scroll', open);
+        });
+        nav.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A') {
+            nav.classList.remove('header__nav--open');
+            burger.setAttribute('aria-expanded', 'false');
+            body.classList.remove('page__body--no-scroll');
+          }
+        });
+      }
+    </script>
+
+    <section class="promo-banner">
+      <div class="promo-banner__container">
+        <img src="./img/promo.png" alt="Подарок" class="promo-banner__img">
+        <div class="promo-banner__content">
+          <h2 class="promo-banner__title">
+            Станьте миллионером с Leader Classic
+          </h2>
+          <p class="promo-banner__text">
+            Откройте счет, инвестируйте в фонды Leader Classic и получите шанс выиграть один из 100 000 000 ₽
+          </p>
+        </div>
+        <p class="promo-banner__timer">27 д : 07 д : 40 м : 49 с</p>
+      </div>
+    </section>
+    <script>
+      const timerEl = document.querySelector('.promo-banner__timer');
+      if (timerEl) {
+        const text = timerEl.textContent.trim();
+        const nums = text.match(/\d+/g) || [];
+        const labels = text.match(/[а-яё]+/gi) || ['д','ч','м','с'];
+        const d = parseInt(nums[0] || '0', 10);
+        const h = parseInt(nums[1] || '0', 10);
+        const m = parseInt(nums[2] || '0', 10);
+        const s = parseInt(nums[3] || '0', 10);
+        let end = Date.now() + (((d * 24 + h) * 60 + m) * 60 + s) * 1000;
+        const pad = n => String(n).padStart(2, '0');
+        const tick = () => {
+          const rem = Math.max(0, Math.floor((end - Date.now()) / 1000));
+          const dd = Math.floor(rem / 86400);
+          const hh = Math.floor((rem % 86400) / 3600);
+          const mm = Math.floor((rem % 3600) / 60);
+          const ss = rem % 60;
+          timerEl.textContent = `${dd} ${labels[0] || 'д'} : ${pad(hh)} ${labels[1] || 'ч'} : ${pad(mm)} ${labels[2] || 'м'} : ${pad(ss)} ${labels[3] || 'с'}`;
+          if (rem <= 0) clearInterval(int);
+        };
+        tick();
+        const int = setInterval(tick, 1000);
+      }
+    </script>
+    <section class="offer">
+      <div class=" container offer__flex">
+        <div class="offer__container">
+        <h2 class="offer__title">
+          ТОП-5 акций <br> с доходностью до 10-30% уже в 2022 году 
+        </h2>
+        <ul class="offer__benefits">
+          <li class="offer__items">
+            Открытие брокерского счета за 5 минут без визита в офис
+          </li>
+          <li class="offer__items">
+            Доступ к ценным бумагам с любого устройства
+          </li>
+          <li class="offer__items">
+            Поддержка в чате 24/7
+          </li>
+        </ul>
+        <div class="offer__button">
+          <button class="offer__button-accent">
+            Скачать ТОП-5 акций
+            <span class="offer-doc"><img src="./img/offer-doc.svg" alt="Документ" class="offer__doc">
+              </span>
+          </button>
+          <button class="offer__button-def">Открыть счёт</button>
+        </div>
+        <div class="offer__user">
+          <img src="./img/offer-avatar.png" alt="Аватар пользователя" class="offer__user-img">
+          <p class="offer__user-text">Сейчас инвестируют<br>100 000+ пользователей</p>
+        </div>
+        </div>
+      </div>
+      <img src="./img/phone-decor.png" alt="decor" class="offer__for-phone">
+    </section>
+    <section class="investment-hero">
+      <div class="container investment-hero__container">
+      <h2 class="investment-hero__title">Ваши деньги <br><span class="investment-hero__title-accent">способны на большее</span></h2>
+      <p class="investment-hero__text">Сколько бы вы заработали, инвестируй 100 000 ₽ <br>год назад?</p>
+      <div class="investment-hero__items">
+        <div class="investment-hero__item">
+          <img src="./img/tesla-img.jpg" alt="Логотип тесла" class="investment-hero__item-img">
+          <p class="investment-hero__item-percent">+83.97%</p>
+          <p class="investment-hero__item-plus">+72.000₽</p>
+        </div>
+        <div class="investment-hero__item">
+          <img src="./img/amazon-img.jpg" alt="Логотип Amazon" class="investment-hero__item-img">
+          <p class="investment-hero__item-percent investment-hero__item-percent-amazon">+4.11%  </p>
+          <p class="investment-hero__item-plus">+72.000₽</p>
+        </div>
+        <div class="investment-hero__item"><img src="./img/apple-img.png" alt="Логотип Apple" class="investment-hero__item-img">
+          <p class="investment-hero__item-percent">+26.36%</p>
+          <p class="investment-hero__item-plus">+72.000₽</p>
+        </div>
+        <div class="investment-hero__item">
+          <img src="./img/yandex-img.png" alt="Логотип Yandex" class="investment-hero__item-img">
+          <p class="investment-hero__item-percent">+83.97%</p>
+          <p class="investment-hero__item-plus">+72.000₽</p>
+        </div>
+        <div class="investment-hero__item">
+          <img src="./img/tesla-img.jpg" alt="Логотип тесла" class="investment-hero__item-img">
+          <p class="investment-hero__item-percent">+17.19%</p>
+          <p class="investment-hero__item-plus">+72.000₽</p>
+        </div>
+        <div class="investment-hero__item">
+          <img src="./img/facebook-img.png" alt="Логотип Facebook" class="investment-hero__item-img">
+          <p class="investment-hero__item-percent">+31.32%</p>
+          <p class="investment-hero__item-plus">+72.000₽</p>
+        </div>
+        <div class="investment-hero__item">
+          <img src="./img/windows-img.png" alt="Логотип Microsoft" class="investment-hero__item-img">
+          <p class="investment-hero__item-percent">+38.99%</p>
+          <p class="investment-hero__item-plus">+72.000₽</p>
+        </div>
+      </div>
+      <p class="investment-hero__text-bottom">И еще более 10 000 других ценных бумаг доступно <span class="investment-hero__text-bottom-accent">в каталоге</span></p>
+      <button class="investment-hero__button">Получить каталог</button>
+    </div>
+    </section>
+    <script>
+      const initInvestmentCarousel = () => {
+        const container = document.querySelector('.investment-hero__items');
+        if (!container) return;
+        const media = window.matchMedia('(max-width: 576px)');
+        let intervalId = null;
+
+        const getStep = () => {
+          const firstItem = container.querySelector('.investment-hero__item');
+          if (!firstItem) return 0;
+          const styles = getComputedStyle(container);
+          const gap = parseFloat(styles.columnGap || styles.gap || '0');
+          return firstItem.getBoundingClientRect().width + gap;
+        };
+
+        const start = () => {
+          if (intervalId) return;
+          intervalId = setInterval(() => {
+            const step = getStep();
+            if (!step) return;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            const next = container.scrollLeft + step;
+            container.scrollTo({
+              left: next > maxScroll + 1 ? 0 : next,
+              behavior: 'smooth'
+            });
+          }, 2500);
+        };
+
+        const stop = () => {
+          if (!intervalId) return;
+          clearInterval(intervalId);
+          intervalId = null;
+        };
+
+        const update = () => {
+          if (media.matches) {
+            start();
+          } else {
+            stop();
+            container.scrollLeft = 0;
+          }
+        };
+
+        update();
+        if (media.addEventListener) {
+          media.addEventListener('change', update);
+        } else {
+          media.addListener(update);
+        }
+
+        container.addEventListener('pointerenter', stop);
+        container.addEventListener('pointerleave', start);
+        container.addEventListener('touchstart', stop, { passive: true });
+        container.addEventListener('touchend', start);
+      };
+
+      initInvestmentCarousel();
+    </script>
+    <section class="instrument-hero">
+      <div class="container instrument-hero__container">
+        <h2 class="instrument-hero__title">Большой выбор инструментов</h2>
+        <div class="instrument-hero__media">
+          <img src="./img/CleanShot 2021-12-21 at 3 PM.20 1.jpg" alt="Инструменты для инвестиций" class="instrument-hero__image">
+        </div>
+      </div>
+    </section>
+    <section class="steps">
+      <div class="container steps__container">
+        <h2 class="steps__title">Инвестиции доступные каждому</h2>
+        <p class="steps__bottom-text">
+          Простой сервис с подсказками и <br>поддержкой 24/7 на каждом этапе
+        </p>
+        <div class="steps__items">
+          <div class="steps__item">
+            <p class="steps__item-number">ШАГ 1</p>
+            <h3 class="steps__item-title">Заполнить регистрационную анкету</h3>
+            <p class="steps__item-icon">1</p>
+            <p class="steps__item-text">Нужно указать основные данные о себе: имя, номер телефона, e-mail и пароль для входа.</p>
+          </div>
+          <div class="steps__item steps__item-second"><p class="steps__item-number">ШАГ 2</p>
+            <h3 class="steps__item-title steps__item-title-second">Внести деньги <br>на счет</h3>
+            <p class="steps__item-icon steps__item-icon-second">2</p>
+            <p class="steps__item-text">Вы можете использовать несколько платежных систем для пополнения депозита, включая систему MidexPay и кошелек Bitcoin.</p></div>
+          <div class="steps__item"><p class="steps__item-number">ШАГ 3</p>
+            <h3 class="steps__item-title steps__item-title-third">Приступить <br>
+              к онлайн-трейдингу</h3>
+            <p class="steps__item-icon steps__item-icon-third">3</p>
+            <p class="steps__item-text">Сразу после пополнения депозита торговля через веб-терминал или мобильную платформу будет доступна.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bonus">
+      <div class="container bonus__container">
+        <h2 class="bonus__title">БОНУС</h2>
+        <h3 class="bonus__subtitle">Каждый достоин<br>второго шанса</h3>
+        <p class="bonus__text">Купите свои первые акции без риска, мы вернем вам <br>
+          вам 100$ на счет в случае проигрыша </p>
+          <div class="bonus__button">
+            <button class="bonus__button-accent">
+              Получить бонус
+            </button>
+            <button class="bonus__button-def">
+              Открыть демо-счёт
+            </button>
+          </div>
+      </div>
+    </section>
+    <section class="features">
+      <div class="container features__container">
+        <h2 class="features__title">100 000+ клиентов уже <br>инвестируют с нами</h2>
+        <div class="features__row">
+          <button class="features__arrow features__arrow--prev" type="button" aria-label="Предыдущие карточки">←</button>
+          <div class="features__items section1">
+          <div class="features__item">
+            <img src="./icon/world-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">Представительство компании в Европе</p>
+            <p class="features__item-text">В разных странах мира компания открывает собсвенные представительства.</p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          <div class="features__item">
+            <img src="./icon/card-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">Мгновенный ввод и вывод средств</p>
+            <p class="features__item-text">0% комиссия с депозита</p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          <div class="features__item">
+            <img src="./icon/people-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">Кредитное плечо до 1:1000</p>
+            <p class="features__item-text"></p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          <div class="features__item">
+            <img src="./icon/time-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">Время выполнения заказа - 30 мс</p>
+            <p class="features__item-text">Средний показатель по отрасли - 500 мс</p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          </div>
+          <button class="features__arrow features__arrow--next" type="button" aria-label="Следующие карточки">→</button>
+        </div>
+        <div class="features__row">
+          <button class="features__arrow features__arrow--prev" type="button" aria-label="Предыдущие карточки">←</button>
+          <div class="features__items section2">
+          <div class="features__item">
+            <img src="./icon/instrument-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">250 торговых инструментов</p>
+            <p class="features__item-text">Валютные пары, акции, металлы, индексы, облигации</p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          <div class="features__item">
+            <img src="./icon/dollar-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">Счета в евро, рублях, долларах США</p>
+            <p class="features__item-text">Пополните свой счет и сэкономьте на сборах за конвертацию</p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          <div class="features__item">
+            <img src="./icon/bonus-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">15% бонус на первый депозит</p>
+            <p class="features__item-text">Может использоваться в торговле и во время просадки</p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          <div class="features__item">
+            <img src="./icon/platform-icon.svg" alt="Иконка" class="features__item-img" width="48" height="48">
+            <p class="features__item-title">Инновационная торговая платформа МТ5</p>
+            <p class="features__item-text">Доступно на IOS и Android</p>
+            <a href="#" class="features__item-link"><span class="features__item-link-text">Подробнее</span><span class="features__item-link-arrow">→</span></a>
+          </div>
+          </div>
+          <button class="features__arrow features__arrow--next" type="button" aria-label="Следующие карточки">→</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      const initFeaturesArrows = () => {
+        const rows = document.querySelectorAll('.features__row');
+        rows.forEach((row) => {
+          const track = row.querySelector('.features__items');
+          const prev = row.querySelector('.features__arrow--prev');
+          const next = row.querySelector('.features__arrow--next');
+          if (!track || !prev || !next) return;
+
+          const getStep = () => {
+            const item = track.querySelector('.features__item');
+            if (!item) return 0;
+            const styles = getComputedStyle(track);
+            const gap = parseFloat(styles.columnGap || styles.gap || '0');
+            return item.getBoundingClientRect().width + gap;
+          };
+
+          prev.addEventListener('click', () => {
+            const step = getStep();
+            if (!step) return;
+            track.scrollBy({ left: -step, behavior: 'smooth' });
+          });
+
+          next.addEventListener('click', () => {
+            const step = getStep();
+            if (!step) return;
+            track.scrollBy({ left: step, behavior: 'smooth' });
+          });
+        });
+      };
+
+      initFeaturesArrows();
+    </script>
+    <section class="backpack">
+      <div class="container backpack__container">
+        <div class="backpack__inner">
+          <div class="backpack__card">
+            <div class="backpack__gauge">
+              <img src="./img/polzynok-img.png" alt="Шкала доходности" class="backpack__gauge-img">
+              <div class="backpack__center">
+                <p class="backpack__label">Доходность</p>
+                <p class="backpack__value">до 5%</p>
+                <span class="backpack__badge">Низкий риск</span>
+              </div>
+            </div>
+            <input class="backpack__range" type="range" min="0" max="100" value="35" aria-label="Уровень доходности">
+            <div class="backpack__choices" role="group" aria-label="Способ управления">
+              <label class="backpack__choice">
+                <input class="backpack__choice-input" type="radio" name="backpack-control" checked>
+                <span class="backpack__choice-dot"></span>
+                <span class="backpack__choice-text">Управляю деньгами сам</span>
+              </label>
+              <label class="backpack__choice">
+                <input class="backpack__choice-input" type="radio" name="backpack-control">
+                <span class="backpack__choice-dot"></span>
+                <span class="backpack__choice-text">Доверяю управление</span>
+              </label>
+            </div>
+          </div>
+          <div class="backpack__content">
+            <h2 class="backpack__title">Подберите<br>индивидуальный<br>инвестиционный<br>портфель</h2>
+            <p class="backpack__text">
+              Покупайте российские и иностранные акции, облигации, валюту и другие
+              продукты в простом и удобном мобильном приложении для iOS и Android
+            </p>
+            <button class="backpack__button">Получить портфель</button>
+          </div>
+        </div>
+        <div class="backpack__bottom-content">
+          <div class="backpack__bottom-item">
+            <p class="backpack__bottom-item-title">
+              60 000
+            </p>
+            <p class="backpack__bottom-item-text">
+              Активных инвесторов
+            </p>
+          </div>
+          <div class="backpack__bottom-item">
+            <p class="backpack__bottom-item-title">
+              150+
+            </p>
+            <p class="backpack__bottom-item-text">
+              Торговых инструментов
+            </p>
+          </div>
+          <div class="backpack__bottom-item">
+            <p class="backpack__bottom-item-title">
+              183 000 USD
+            </p>
+            <p class="backpack__bottom-item-text">
+              Финансовый результат одного из инвесторов
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const initBackpackRange = () => {
+        const range = document.querySelector('.backpack__range');
+        if (!range) return;
+        const setValue = () => {
+          range.style.setProperty('--value', range.value);
+        };
+        setValue();
+        range.addEventListener('input', setValue);
+      };
+
+      initBackpackRange();
+    </script>
+<section class="investment-phone">
+  <div class="container investment-phone__container">
+    <img src="./img/phone-dev.png" alt="Телефон" class="investment-phone__image">
+    <div class="investment-phone__content">
+      <h2 class="investment-phone__title">Инвестируйте с телефона</h2>
+      <p class="investment-phone__text">
+        Покупайте российские и иностранные акции, облигации, валюту и другие продукты
+        в простом и удобном мобильном приложении для iOS и Android.
+      </p>
+      <div class="investment-phone__buttons">
+        <button class="investment-phone__button investment-phone__button--ios">
+          <img src="./icon/ios.svg" alt="Иконка IOS" class="investment-phone__button-img">Скачать для IOS
+        </button>
+        <button class="investment-phone__button investment-phone__button--android">
+          <img src="./icon/android.svg" alt="Иконка Android" class="investment-phone__button-img">Скачать для Android
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="faq">
+  <div class="container faq__container">
+  <div class="faq__info">
+    <h2 class="faq__title">Мне только<br> спросить</h2>
+    <p class="faq__text">Собрали в подсказках ответы<br> на популярные вопросы <br>
+      об инвестициях и сервисе</p>
+      <button class="faq__button">Получить консультацию</button>
+  </div>
+  <div class="faq__items">
+    <div class="faq__item">
+      <img src="./icon/vopros-icon.svg" alt="Иконка" class="faq__item-img">
+      <p class="faq__item-text">Есть ли плата за обслуживание?</p>
+      <button class="faq__item-button"><img src="./icon/Frame 14.svg" alt="Иконка" class="faq__item-button-img"></button>
+    </div>
+    <div class="faq__item">
+      <img src="./icon/vopros-icon.svg" alt="Иконка" class="faq__item-img">
+      <p class="faq__item-text">Как вывести деньги со счёта?</p>
+      <button class="faq__item-button"><img src="./icon/Frame 14.svg" alt="Иконка" class="faq__item-button-img"></button>
+    </div>
+    <div class="faq__item">
+      <img src="./icon/vopros-icon.svg" alt="Иконка" class="faq__item-img">
+      <p class="faq__item-text">Какие налоги?</p>
+      <button class="faq__item-button"><img src="./icon/Frame 14.svg" alt="Иконка" class="faq__item-button-img"></button>
+    </div>
+    <div class="faq__item">
+      <img src="./icon/vopros-accent-faq.svg" alt="Иконка" class="faq__item-img">
+      <p class="faq__item-text">Где хранятся деньги?</p>
+      <button class="faq__item-button"><img src="./icon/Frame 14.svg" alt="Иконка" class="faq__item-button-img"></button>
+    </div>
+    <div class="faq__item">
+      <img src="./icon/vopros-icon.svg" alt="Иконка" class="faq__item-img">
+      <p class="faq__item-text">Как открыть счёт?</p>
+      <button class="faq__item-button"><img src="./icon/Frame 14.svg" alt="Иконка" class="faq__item-button-img"></button>
+    </div>
+    <div class="faq__item">
+      <img src="./icon/vopros-icon.svg" alt="Иконка" class="faq__item-img">
+      <p class="faq__item-text">Как пополнить счёт?</p>
+      <button class="faq__item-button"><img src="./icon/Frame 14.svg" alt="Иконка" class="faq__item-button-img"></button>
+    </div>
+    <div class="faq__item">
+      <img src="./icon/vopros-icon.svg" alt="Иконка" class="faq__item-img">
+      <p class="faq__item-text">Что купить?</p>
+      <button class="faq__item-button"><img src="./icon/Frame 14.svg" alt="Иконка" class="faq__item-button-img"></button>
+    </div>
+  </div>
+</div>
+</section>
+<section class="application">
+  <div class="container application__container">
+    <h2 class="application__title">Оставьте заявку на открытие счёта </h2>
+    <div class="application__items">
+        <div class="application__item">
+          <div class="application__img">
+          <img src="./img/apply-1.png" alt="">
+          <img src="./img/arrow-apply.svg" alt="Стрелка">
+        </div>
+        <p class="application__item__title">
+          Заполните заявку <br>онлайн
+        </p>
+        <p class="application__item-text">
+          Необходимо: имя, номер<br> телефона, e-mail и пароль <br>
+          для входа.
+        </p>
+        </div>
+        <div class="application__item">
+          <div class="application__img">
+          <img src="./img/apply-2.png" alt="">
+          <img src="./img/arrow-apply.svg" alt="Стрелка">
+        </div>
+        <p class="application__item__title">
+          Откроем счет <br>за 5 минут
+        </p>
+        <p class="application__item-text">
+          Вы можете использовать<br> несколько платежных систем<br> для пополнения депозита, <br>включая систему MidexPay и<br> кошелек Bitcoin.
+        </p>
+        </div>
+        <div class="application__item">
+          <div class="application__img">
+          <img src="./img/apply-3.png" alt="">
+          <img>
+        </div>
+        <p class="application__item__title">
+          Пополните счёт <br>и начните инвестировать
+        </p>
+        <p class="application__item-text">
+          Сразу после пополнения<br> депозита будет доступна<br> торговля через веб-терминал<br> или мобильную платформу.
+        </p>
+        </div>
+    </div>
+    <div class="application__input">
+      <form class="application__form">
+        <input class="application__field" type="text" placeholder="Ваше имя:" aria-label="Ваше имя">
+        <input class="application__field" type="tel" placeholder="+7 --- --- -- --" aria-label="Номер телефона">
+        <input class="application__field" type="email" placeholder="Email:" aria-label="Email">
+        <button class="application__submit" type="submit">Оставить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <img src="./img/footer__decor.png" alt="декорация" class="footer__decor">
+  <div class=" footer__container">
+     <div class="footer__start">
+      <a href="#" class="footer__logo">
+      <img src="./icon/logo.svg" alt="Логотип">
+    </a>
+    <a href="#">
+      <img src="./icon/mass-footer.png" alt="Мессенджеры">
+    </a>
+    <a href="#" class="footer__link">Политика передачи данных</a>
+     </div>
+     <div class="footer__end">
+      <p class="footer__text">
+        Звонок по России бесплатный
+      </p>
+      <a  class="footer__number" href="tel:8 (495) 212-16-71">8 (495) 212-16-71</a>
+      <button class="footer__button">Перезвоните мне</button>
+     </div>
+  </div>
+</footer>
+</body>
+</html>

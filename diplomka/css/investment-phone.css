@@ -1,0 +1,96 @@
+.investment-phone{
+    margin-top: 140px;
+    overflow: visible;
+}
+
+.investment-phone__container{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+    overflow: visible;
+}
+
+.investment-phone__image{
+    width: min(980px, 100%);
+    height: auto;
+    display: block;
+    margin-inline: auto;
+}
+
+.investment-phone__content{
+    max-width: none;
+}
+
+.investment-phone__title{
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 120%;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.investment-phone__text{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #fafafa;
+    margin-bottom: 28px;
+}
+
+.investment-phone__buttons{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.investment-phone__button{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid #3a3a3a;
+    background: transparent;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+}
+
+.investment-phone__button-img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+@media (width <= 1024px){
+    .investment-phone__container{
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .investment-phone__content{
+        max-width: none;
+        text-align: center;
+    }
+
+    .investment-phone__buttons{
+        justify-content: center;
+    }
+}
+
+@media (width <= 640px){
+    .investment-phone{
+        margin-top: 80px;
+    }
+
+    .investment-phone__title{
+        font-size: 28px;
+    }
+
+    .investment-phone__text{
+        font-size: 14px;
+    }
+}

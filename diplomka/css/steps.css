@@ -1,0 +1,223 @@
+
+
+.steps__title{
+    margin-top: 139px;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 117%;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 28px;
+}
+
+.steps__bottom-text{
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 158%;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 80px;
+}
+
+.steps__items{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.steps__item{
+    position: relative;
+    padding: 32px;
+    padding-right: 110px;
+    min-height: 385px;
+}
+
+.steps__item-icon{
+    object-fit: contain;
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    top: -40px;
+    right: 60px;
+    margin: 0;
+font-weight: 700;
+font-size: 300px;
+line-height: 117%;
+text-align: center;
+background: linear-gradient(180deg, #3d4f3b 0%, rgba(61, 79, 59, 0) 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.steps__item-number{
+font-weight: 400;
+font-size: 21px;
+line-height: 130%;
+color: #fff;
+margin-bottom: 20px;
+}
+
+.steps__item-title{
+font-weight: 500;
+font-size: 35px;
+line-height: 130%;
+color: #fff;
+margin-bottom: 29px;
+}
+
+.steps__item-text{
+    width: 377px;
+font-weight: 400;
+font-size: 22px;
+line-height: 159%;
+color: #fff;
+}
+
+.steps__item-second{
+    width: auto;
+    height: auto;
+}
+
+.steps__item-title-second{
+    margin-bottom: 75px;
+}
+
+.steps__item-icon-second{
+    top: -50px;
+    right: 35px;
+}
+
+.steps__item-title-third{
+    margin-bottom: 35px;
+}
+
+.steps__item-icon-third{
+    top: -40px;
+    right: 65px;
+}
+
+@media (width <= 1435px) {
+    .steps__title{
+        font-size: clamp(28px, 4.2vw, 60px);
+    }
+
+    .steps__bottom-text{
+        font-size: clamp(12px, 2vw, 22px);
+    }
+
+    .steps__items{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(16px, 2vw, 24px);
+    }
+
+    .steps__item{
+        padding: clamp(20px, 2.5vw, 28px);
+        padding-right: clamp(52px, 7vw, 90px);
+        min-height: clamp(260px, 30vw, 360px);
+    }
+
+    .steps__item-icon{
+        font-size: clamp(140px, 18vw, 240px);
+        top: clamp(-40px, -6vw, -70px);
+        right: clamp(8px, 2vw, 20px);
+        line-height: 1;
+    }
+
+    .steps__item-number{
+        font-size: clamp(12px, 1.6vw, 18px);
+    }
+
+    .steps__item-title{
+        font-size: clamp(18px, 2.6vw, 30px);
+        margin-bottom: clamp(18px, 2.2vw, 26px);
+    }
+
+    .steps__item-text{
+        font-size: clamp(14px, 2vw, 20px);
+    }
+
+    .steps__item-title-second{
+        margin-bottom: clamp(18px, 2.2vw, 26px);
+    }
+
+    .steps__item-icon-second{
+        top: clamp(-40px, -6vw, -70px);
+        right: clamp(8px, 2vw, 6px);
+    }
+
+    .steps__item-title-third{
+        margin-bottom: clamp(18px, 2.2vw, 26px);
+    }
+
+    .steps__item-icon-third{
+        top: clamp(-40px, -6vw, -70px);
+        right: clamp(8px, 2vw, 20px);
+    }
+}
+
+@media (width <= 640px) {
+    .steps__title{
+        margin-top: 40px;
+        margin-bottom: 16px;
+        font-size: 28px;
+        line-height: 120%;
+    }
+
+    .steps__bottom-text{
+        margin-bottom: 32px;
+        font-size: 12px;
+        line-height: 150%;
+    }
+
+    .steps__items{
+        grid-template-columns: 1fr;
+    }
+
+    .steps__item{
+        padding: 20px;
+        padding-right: 64px;
+        min-height: auto;
+    }
+
+    .steps__item-icon{
+        font-size: 140px;
+        top: -20px;
+        right: 12px;
+        line-height: 1;
+    }
+
+    .steps__item-number{
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .steps__item-title{
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .steps__item-text{
+        width: auto;
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    .steps__item-title-second{
+        margin-bottom: 14px;
+    }
+
+    .steps__item-title-third{
+        margin-bottom: 14px;
+    }
+
+    .steps__item-icon-second{
+        top: -24px;
+        right: 10px;
+    }
+
+    .steps__item-icon-third{
+        top: -22px;
+        right: 12px;
+    }
+}

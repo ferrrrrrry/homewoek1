@@ -1,0 +1,132 @@
+.features__title{
+font-weight: 500;
+font-size: 70px;
+line-height: 117%;
+text-align: center;
+color: #fff;
+margin-bottom: 80px;
+}
+
+.features__items{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.features__item{
+border-radius: 5px;
+width: 378px;
+height: 442px;
+background: #1b1b1c;
+display: flex;
+flex-direction: column;
+padding: 32px;
+}
+
+.features__item-img{
+    width: 36px;
+    height: 36px;
+}
+
+.features__item-title{
+    margin-top: 24px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 125%;
+    color: #fff;
+}
+
+.features__item-text{
+font-weight: 400;
+font-size: 22px;
+line-height: 157%;
+color: #fff;
+}
+
+.features__item-link{
+    margin-top: auto;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #c9c9c9;
+    align-self: flex-end;
+    text-decoration: none;
+}
+
+.features__item-link-text{
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.features__item-link-arrow{
+    margin-left: 4px;
+}
+
+.features__row{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.features__arrow{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #3a3a3a;
+    background: #1b1b1c;
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (width <= 1200px) {
+    .features__items{
+        overflow-x: auto;
+        padding: 0 16px 8px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    .features__item{
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: 320px;
+        height: auto;
+    }
+
+    .features__arrow{
+        display: inline-flex;
+    }
+}
+
+@media (width <= 640px) {
+    .features__title{
+        font-size: 28px;
+        line-height: 120%;
+        margin-bottom: 32px;
+    }
+
+    .features__items{
+        gap: 12px;
+    }
+
+    .features__item{
+        width: 260px;
+        padding: 20px;
+    }
+
+    .features__item-title{
+        margin-top: 16px;
+        margin-bottom: 16px;
+        font-size: 18px;
+    }
+
+    .features__item-text{
+        font-size: 14px;
+        line-height: 150%;
+    }
+}

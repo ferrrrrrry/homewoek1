@@ -1,0 +1,31 @@
+:root {
+  /* font-family */
+  --font-family: "GothamPro", sans-serif;
+  --font-logo: "latinCT-wide", sans-serif;
+
+  /* colors */
+  --main-color: #fff;
+  --accent-color: #ffea00;
+  --accent-glow-color: #ffea004d;
+  --bg-color: #0e0e12;
+  --secondary-color: #c9c69b;
+  --disable-color: #5d5d56;
+  --shadow-color: #181817;
+
+  /* container */
+  --container-width: 1560px;
+  --container-padding: 15px;
+
+  /* transitions */
+  --transition-time: 0.2s;
+
+  /* header */
+  --header-height-mobile: 72px;
+
+  /* layers */
+  --layer-negative: -1;
+  --layer-0: 0;
+  --layer-1: 1;
+  --layer-2: 2;
+  --layer-3: 3;
+}
