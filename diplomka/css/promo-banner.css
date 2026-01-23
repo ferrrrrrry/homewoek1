@@ -55,8 +55,8 @@ color: #eae9e9;
     gap: 12px;
     align-items: flex-start;
     position: relative;
-    width: 432px;
-    width: 442px;
+    width: 100%;
+    max-width: 100%;
   }
   .promo-banner__content{
     flex: 1 1 auto;
@@ -95,12 +95,31 @@ color: #eae9e9;
 @media (width > 576px) {
   .promo-banner__container{
     justify-content: space-between;
-    width: 1501px;
+    width: 100%;
   }
 }
 
-@media (width > 576px) and (width <= 1000px){
+@media (width > 576px) and (width <= 1024px){
   .promo-banner__container{
-    width: 1150px;
+    height: auto;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .promo-banner__title{
+    font-size: 16px;
+  }
+
+  .promo-banner__text{
+    font-size: 14px;
+  }
+
+  .promo-banner__timer{
+    font-size: 22px;
+  }
+
+  .promo-banner__img{
+    width: 40px;
+    height: 40px;
   }
 }

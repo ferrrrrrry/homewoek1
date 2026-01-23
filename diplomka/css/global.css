@@ -4,11 +4,13 @@
     color: var(--main-color);
     scroll-behavior: smooth;
     scroll-padding-top: 98px;
+    overflow-x: hidden;
   }
   
   .page__body {
     min-width: 375px;
     background-color: var(--bg-color);
+    overflow-x: hidden;
   }
   
   .page__body--no-scroll {
