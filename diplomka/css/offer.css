@@ -265,6 +265,7 @@ background-clip: text;
         position: absolute;
         top: 370px;
         left: 110px;
+        z-index: -1;
     }
     
 }

@@ -28,9 +28,11 @@
 
 .investment-hero__items{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
-    gap: 100px;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    row-gap: 40px;
     margin-top: 80px;
     width: 100%;
     margin-bottom: 109px;
@@ -63,14 +65,6 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-}
-
-.investment-hero__item:nth-child(odd) {
-    margin-top: 32px;
-}
-
-.investment-hero__item:nth-child(even) {
-    margin-top: 0;
 }
 
 .investment-hero__item-percent-amazon{
@@ -121,20 +115,14 @@ color: #fff;
     }
 
     .investment-hero__items{
-        justify-content: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 16px;
         margin-top: 24px;
         margin-bottom: 24px;
-        overflow-x: auto;
-        padding: 0 16px 8px;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scroll-padding: 16px;
     }
 
     .investment-hero__item{
-        flex: 0 0 auto;
-        scroll-snap-align: start;
         width: 96px;
         text-align: center;
     }
@@ -161,14 +149,6 @@ color: #fff;
         border-radius: 12px;
     }
 
-    .investment-hero__item:nth-child(odd) {
-        margin-top: 12px;
-    }
-
-    .investment-hero__item:nth-child(even) {
-        margin-top: 0;
-    }
-
     .investment-hero__item-percent-amazon{
         margin-left: 0;
     }
@@ -191,5 +171,11 @@ color: #fff;
 @media (width < 575px){
     .instrument-hero__title{
         font-size: 55px;
+    }
+}
+
+@media (max-width: 422px){
+    .instrument-hero__title{
+        font-size: 43px;
     }
 }

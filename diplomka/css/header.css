@@ -1,5 +1,7 @@
 .header__container{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header__burger{
@@ -8,8 +10,7 @@
 
 
 .header__logo{
-    margin-top: 30px;
-    margin-right: 42px;
+    margin: 24px 32px 24px 0;
 }
 .header__logo-img{
     max-width: 162px;
@@ -37,13 +38,14 @@
 }
 
 .header__nav{
-    margin-top: 61px;   
-    margin-right: 191px;
+    flex: 1 1 auto;
+    margin-right: 40px;
 }
 
 .header__list{
     display: flex;
-    gap: 90px;
+    align-items: center;
+    gap: 48px;
 }
 
 .header__link{
@@ -68,7 +70,7 @@ background-clip: text;
 }
 
 .header__buttons{
-    margin-top: 42px;
+    margin-top: 0;
     display: flex;
     gap: 20px;
 }
@@ -117,7 +119,7 @@ background-clip: text;
     background: linear-gradient(57deg, #dc6b30 0%, #e4864f 42.19%, #ffbe82 72.92%, #e49031 100%);
 }
 
-@media (width <= 576px) {
+@media (width <= 1262px) {
   .header__container{
     align-items: center;
     padding: 12px 0;
@@ -141,10 +143,9 @@ background-clip: text;
     margin: 0;
   }
   .header__logo img{
-    width: 120px;
+    width: 168px;
     position: relative;
     top: 14px;
-    margin-right: 52px;
   }
   .header__nav{
     position: fixed;
@@ -194,42 +195,14 @@ background-clip: text;
     margin-right: 16px;
   }
 }
-@media (width > 576px) and (width <= 1000px){
-    .header__nav{
-        margin-right: 24px;
-    }
-    .header__list{
-        gap: 18px;
-    }
-    .header__logo{
-        margin-top: 20px;
-        margin-right: 24px;
-    }
-    .header__logo-img{
-        max-width: 140px;
-        height: auto;
-    }
-    .header__buttons{
-        margin-top: 28px;
-        gap: 12px;
-    }
-    .header__button{
-        font-size: 16px;
-        width: 100px;
-        height: 52px;
-    }
-    .header__button-accent{
-        font-size: 16px;
-        width: 200px;
-        height: 56px;
-    }
-    .header__link,
-    .header__link-accent{
-        font-size: 16px;
-    }
-}
 
 .burger__img{
     max-width: 16;
     height: 16;
 }
+
+ @media (width <= 576px){
+   .header__logo img {
+     width: 120px;
+   }
+ }
